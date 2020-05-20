@@ -28,7 +28,18 @@ This is the web server implementation.
 
 ## Usage
 
-> config.env is used by Makefile to get app specific parameters
+To get started, clone this repository, install dependencies and run the server:
+
+```bash
+git clone https://git-url/path/to/hubjs.git
+cd hubjs
+npm install && npm start
+```
+
+### Docker
+
+> The following commands uses the Makefile provided by this repo.</br>
+> Also, `config.env` is sourced by the Makefile to get app specific parameters.
 
 Build the image without using the build cache:
 
