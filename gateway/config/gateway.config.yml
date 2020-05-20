@@ -16,6 +16,8 @@ apiEndpoints:
       - /ip
       - /headers
       - /user-agent
+      - /cookies
+      - /bearer
 
 policies:
   - cors
