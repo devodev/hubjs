@@ -1,0 +1,45 @@
+http:
+  port: 8080
+
+admin:
+  port: 9876
+  host: localhost
+
+serviceEndpoints:
+  httpbin:
+    url: 'https://httpbin.org'
+
+apiEndpoints:
+  httpbin:
+    host: '*'
+    paths:
+      - /ip
+      - /headers
+      - /user-agent
+
+policies:
+  - cors
+  - expression
+  - key-auth
+  - log
+  - proxy
+  - rate-limit
+
+pipelines:
+  httpbin:
+    apiEndpoints:
+      - httpbin
+    policies:
+      - key-auth:
+          action:
+            apiKeyHeaderScheme: Bearer
+            disableQueryParam: true
+            passThrough: false
+      - log:
+          action:
+            message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            name: proxy
+            serviceEndpoint: httpbin
+            changeOrigin: true
