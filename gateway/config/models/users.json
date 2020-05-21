@@ -1,18 +1,21 @@
 {
-  "$id": "http://express-gateway.io/models/users.json",
-  "type": "object",
-  "properties": {
-    "client_name": {
-      "type": "string",
-      "readOnly": true
+    "$id": "http://express-gateway.io/models/users.json",
+    "type": "object",
+    "properties": {
+        "username": {
+            "type": "string"
+        },
+        "client_name": {
+            "type": "string",
+            "readOnly": true
+        },
+        "client_id": {
+            "type": "number",
+            "readOnly": true
+        }
     },
-    "client_id": {
-      "type": "number",
-      "readOnly": true
-    }
-  },
-  "required": [
-    "client_name",
-    "client_id"
-  ]
+    "required": [
+        "client_name",
+        "client_id"
+    ]
 }

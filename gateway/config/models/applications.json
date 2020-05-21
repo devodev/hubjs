@@ -1,18 +1,22 @@
 {
-  "$id": "http://express-gateway.io/models/applications.json",
-  "type": "object",
-  "properties": {
-    "hostname": {
-      "type": "string",
-      "readOnly": true
+    "$id": "http://express-gateway.io/models/applications.json",
+    "type": "object",
+    "properties": {
+        "userId": {
+            "type": "string",
+            "readOnly": true
+        },
+        "hostname": {
+            "type": "string",
+            "readOnly": true
+        },
+        "edge_id": {
+            "type": "number",
+            "readOnly": true
+        }
     },
-    "edge_id": {
-      "type": "number",
-      "readOnly": true
-    }
-  },
-  "required": [
-    "hostname",
-    "edge_id"
-  ]
+    "required": [
+        "hostname",
+        "edge_id"
+    ]
 }

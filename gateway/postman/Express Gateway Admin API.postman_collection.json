@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"hostname\": \"a.test\",\r\n  \"edge_id\": 1\r\n}",
+							"raw": "{\r\n  \"userId\": \"aba88693-25cd-4fed-b9dd-7a219d8cc9ed\",\r\n  \"hostname\": \"a.test\",\r\n  \"edge_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"client_name\": \"client1\",\r\n\t\"client_id\": 1\r\n}",
+							"raw": "{\r\n\t\"username\": \"client1\",\r\n\t\"client_name\": \"client1\",\r\n\t\"client_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -238,7 +238,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"client_name\": \"client2\",\r\n\t\"client_id\": 1\r\n}",
+							"raw": "{\r\n\t\"username\": \"client2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1257,7 +1257,7 @@
 	],
 	"variable": [
 		{
-			"id": "1cc719c0-bf3e-43fd-b39e-cdc12a7bf8cc",
+			"id": "c14e0681-8072-4819-b3e9-a968e12385cb",
 			"key": "baseUrl",
 			"value": "http://localhost:9876",
 			"type": "string"
