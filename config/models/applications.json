@@ -6,7 +6,7 @@
             "type": "string",
             "readOnly": true
         },
-        "hostname": {
+        "name": {
             "type": "string",
             "readOnly": true
         },
@@ -16,7 +16,7 @@
         }
     },
     "required": [
-        "hostname",
+        "name",
         "edge_id"
     ]
 }
