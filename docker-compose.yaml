@@ -16,7 +16,7 @@ services:
       APP_REDIS_HOST: redis
       APP_REDIS_PORT: 6379
       APP_REDIS_EMULATE: "false"
-    container_name: gateway
+    container_name: gateway-compose
     ports:
       - "8443:8443/tcp"
       - "9876:9876/tcp"
