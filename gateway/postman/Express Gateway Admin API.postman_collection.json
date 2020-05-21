@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "150dca8d-3b57-4606-8f72-ef2890eae556",
+		"name": "Express Gateway Admin API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Apps",
+			"item": [
+				{
+					"name": "Create an App",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"abarone\",\r\n  \"name\": \"my-app\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/apps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/apps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View App info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/apps/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6e63f944-3d74-41c0-83d9-545bbf4d4207"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update App info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"my-app-2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/apps/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6e63f944-3d74-41c0-83d9-545bbf4d4207"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete App",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/apps/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6e63f944-3d74-41c0-83d9-545bbf4d4207"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate/Deactivate App",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/apps/:id/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"apps",
+								":id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6e63f944-3d74-41c0-83d9-545bbf4d4207"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This part of the API is responsible for managing Apps (Applications) entities. A User is the main API Consumer entity. User can have multiple Apps. Main purpose of App is to be container for Credentials",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"abarone\",\r\n  \"firstname\": \"Alex\",\r\n  \"lastname\": \"Barone\",\r\n  \"email\": \"alexandre.barone@hitachi-systems-security.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:id-or-username",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id-or-username"
+							],
+							"variable": [
+								{
+									"key": "id-or-username",
+									"value": "abarone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View User Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"abarone\",\r\n  \"firstname\": \"Alexandre\",\r\n  \"lastname\": \"Barone\",\r\n  \"email\": \"alexandre.barone@hitachi-systems-security.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:id-or-username",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id-or-username"
+							],
+							"variable": [
+								{
+									"key": "id-or-username",
+									"value": "abarone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:id-or-username",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id-or-username"
+							],
+							"variable": [
+								{
+									"key": "id-or-username",
+									"value": "abarone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate/Deactivate User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:id-or-username/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id-or-username",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "id-or-username",
+									"value": "abarone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an App",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A User is a the main consumer entity in Express Gateway. Typically, it would be used to represent a person in Express Gateway. User can have multiple Applications and Credentials.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "915d2a09-266a-4127-8705-20809b2198f3",
+			"key": "baseUrl",
+			"value": "http://localhost:9876",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
