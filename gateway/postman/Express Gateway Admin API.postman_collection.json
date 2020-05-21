@@ -735,11 +735,534 @@
 			],
 			"description": "Express Gateway utilizes scopes for permissions and basic authorization. A scope is a tag you can use to mark API Endpoints and matching Consumer credentials. Scopes can be used within any credential type. Credentials and Scopes Management describes how scopes are declared within credentials\r\n\r\nScopes must be declared within Express Gateway before they are used by credentials or specified on API endpoints.",
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Schemas",
+			"item": [
+				{
+					"name": "Get all Schemas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schemas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Schema Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schemas/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "http%3A%2F%2Fexpress-gateway.io%2Fmodels%2Fsystem.config.json"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Express Gateway utilizes schemas to validate all the options provided by the configurations files. This mechanism prevents the gateway from starting if some required parameters are missing or incorrect. You can query the schemas through the API and provide new ones using plugins\r\n\r\nExpress Gateway ships with some built-in schemas for policies, conditions — plugins can eventually define other personal schemas to validate the provided options.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Policies",
+			"item": [
+				{
+					"name": "Get enabled policies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/policies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enables a policy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/policies/:policy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"policies",
+								":policy"
+							],
+							"variable": [
+								{
+									"key": "policy",
+									"value": "cors"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disables a policy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/policies/:policy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"policies",
+								":policy"
+							],
+							"variable": [
+								{
+									"key": "policy",
+									"value": "cors"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Express Gateway’s Admin API supports querying, enabling and disabling available policies in the configuration.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d825856c-de39-487b-9877-30252222f2fc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3faf94b8-91b5-4b41-a84e-8f894282ea71",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service Endpoints",
+			"item": [
+				{
+					"name": "Create or Update a Service Endpoint",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"urls\":[\r\n  \t\"https://httpbin.org\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service Endpoints",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all service endpoints",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-endpoints",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-endpoints"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service Endpoint",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbi"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This part of Admin API can dynamically register Service Endpoints in the gateway.config file",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "API Endpoints",
+			"item": [
+				{
+					"name": "Create or Update a API Endpoint",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"host\":\"*\",\r\n  \"paths\":[\r\n      \"/ip\",\r\n      \"/headers\",\r\n      \"/user-agent\",\r\n      \"/cookies\",\r\n      \"/bearer\",\r\n      \"/response-headers\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API Endpoints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all api endpoints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api-endpoints",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api-endpoints"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete API Endpoint",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api-endpoints/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api-endpoints",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This part of Admin API can dynamically register API Endpoints in the gateway.config file",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pipelines",
+			"item": [
+				{
+					"name": "Get Pipelines",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pipelines/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pipelines",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create or Update a Pipeline",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apiEndpoints\": [\r\n        \"httpbin\"\r\n    ],\r\n    \"policies\": [\r\n        {\r\n            \"cors\": {\r\n                \"action\": {\r\n                    \"origin\": \"*\",\r\n                    \"credentials\": true,\r\n                    \"methods\": [\r\n                        \"POST\"\r\n                    ],\r\n                    \"optionsSuccessStatus\": 204\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"key-auth\": {\r\n                \"action\": {\r\n                    \"apiKeyHeaderScheme\": \"Bearer\",\r\n                    \"disableQueryParam\": true,\r\n                    \"passThrough\": false\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"log\": {\r\n                \"action\": {\r\n                    \"message\": \"${req.method} ${req.originalUrl}\"\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"proxy\": {\r\n                \"action\": {\r\n                    \"name\": \"proxy\",\r\n                    \"serviceEndpoint\": \"httpbin\",\r\n                    \"changeOrigin\": true\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pipelines/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pipelines",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all api endpoints",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pipelines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pipelines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pipeline",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pipelines/:name",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pipelines",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "httpbin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This part of Admin API can dynamically register pipelines in the gateway.config file",
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [
 		{
-			"id": "bfc9b4ae-245c-42e1-bc29-ef2bba1034c3",
+			"id": "fb15dae6-9b76-4136-b1b0-1975c77a8c23",
 			"key": "baseUrl",
 			"value": "http://localhost:9876",
 			"type": "string"
