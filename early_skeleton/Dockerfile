@@ -7,7 +7,7 @@ WORKDIR /home/node/app
 COPY --chown=node:node package*.json ./
 USER node
 RUN npm ci --only=production
-COPY --chown=node:node . .
+COPY --chown=node:node server.js ./
 
 # Setup process wrapper
 # This is needed for forwarding signals to node
@@ -19,5 +19,5 @@ ENTRYPOINT ["/tini", "--"]
 
 # Run server
 USER node
-EXPOSE ${PORT}
+EXPOSE 8080
 CMD [ "node", "server.js" ]

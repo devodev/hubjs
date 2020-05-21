@@ -1,17 +1,10 @@
 # inspired by: https://gist.github.com/mpneuried/0594963ad38e68917ef189b4e6a269db
-
 # import config.
 # You can change the default config with `make cnf="config_special.env" build`
 cnf ?= config.env
 include $(cnf)
 export $(shell sed 's/=.*//' $(cnf))
 
-# Set TLS Certificate config
-CERT_PATH := ./config/tls
-CERT_NAME := server
-CERT_SUBJ := /C=CA/ST=Quebec/L=Montreal/O=Hitachi Systems Security Inc./CN=localhost
-
-# Main
 .PHONY: help
 
 help: ## This help.
@@ -27,10 +20,10 @@ build-nc: ## Build the container without caching
 	docker build --no-cache -t $(APP_NAME) .
 
 run: ## Run container on port configured in `config.env`
-	docker run -i -t --rm --env-file=./config.env -p=$(PORT):$(PORT) -p=$(ADMIN_PORT):$(ADMIN_PORT) --name="$(APP_NAME)" $(APP_NAME)
+	docker run -i -t --rm --env-file=./config.env -p=$(PORT):$(PORT) --name="$(APP_NAME)" $(APP_NAME)
 
 run-bg: ## Run container on port configured in `config.env` in the background
-	docker run -d --env-file=./config.env -p=$(PORT):$(PORT) -p=$(ADMIN_PORT):$(ADMIN_PORT) --name="$(APP_NAME)" $(APP_NAME)
+	docker run -d --env-file=./config.env -p=$(PORT):$(PORT) --name="$(APP_NAME)" $(APP_NAME)
 
 status: ## Get container status
 	docker ps -f name="$(APP_NAME)"
@@ -40,12 +33,6 @@ stop: ## Stop a running container
 
 rm: ## Remove a container
 	docker rm $(APP_NAME)
-
-gencerts: ## Generate self-signed certificate and key
-	openssl req \
-       -subj '$(CERT_SUBJ)' \
-       -newkey rsa:2048 -nodes -keyout $(CERT_PATH)/$(CERT_NAME).key \
-       -x509 -days 365 -out $(CERT_PATH)/$(CERT_NAME).pem
 
 # AGGREGATE COMMANDS
 up: build run ## Run container on port configured in `config.env` (Alias to run)

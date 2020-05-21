@@ -1,14 +1,11 @@
 {
-    "name": "hubjs",
-    "version": "0.1.0",
-    "description": "An api gateway.",
-    "author": "Alexandre Barone <alexandre.barone@hitachi-systems-security.com>",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "^4.17.1",
-        "winston": "^3.2.1"
-    }
+  "name": "gateway",
+  "description": "Express Gateway Instance Bootstraped from Command Line",
+  "repository": {},
+  "license": "UNLICENSED",
+  "version": "0.1.0",
+  "main": "server.js",
+  "dependencies": {
+    "express-gateway": "^1.16.10"
+  }
 }
