@@ -330,11 +330,416 @@
 			],
 			"description": "A User is a the main consumer entity in Express Gateway. Typically, it would be used to represent a person in Express Gateway. User can have multiple Applications and Credentials.",
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Credentials",
+			"item": [
+				{
+					"name": "Create Credential",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"credential\": {\r\n    \"scopes\": []\r\n  },\r\n  \"consumerId\": \"abarone\",\r\n  \"type\": \"key-auth\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/credentials",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credential by Consumer Id (Username, UserId or AppId)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "71faa3c6-9637-43e8-ba84-9aac1a55d715"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credential info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:type/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "type",
+									"value": "key-auth"
+								},
+								{
+									"key": "id",
+									"value": "5iFmrv3iMEQZmGzmk8rg3F"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate/Deactivate Credential",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:type/:id/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":type",
+								":id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "type",
+									"value": "key-auth"
+								},
+								{
+									"key": "id",
+									"value": "5iFmrv3iMEQZmGzmk8rg3F"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set scopes for Credential",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"scopes\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:type/:id/scopes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":type",
+								":id",
+								"scopes"
+							],
+							"variable": [
+								{
+									"key": "type",
+									"value": "key-auth"
+								},
+								{
+									"key": "id",
+									"value": "5iFmrv3iMEQZmGzmk8rg3F"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add scope to Credential scopes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"scopes\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:type/:id/scopes/:scope",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":type",
+								":id",
+								"scopes",
+								":scope"
+							],
+							"variable": [
+								{
+									"key": "type",
+									"value": "key-auth"
+								},
+								{
+									"key": "id",
+									"value": "5iFmrv3iMEQZmGzmk8rg3F"
+								},
+								{
+									"key": "scope",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove scope from Credential scopes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"scopes\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/credentials/:type/:id/scopes/:scope",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"credentials",
+								":type",
+								":id",
+								"scopes",
+								":scope"
+							],
+							"variable": [
+								{
+									"key": "type",
+									"value": "key-auth"
+								},
+								{
+									"key": "id",
+									"value": "5iFmrv3iMEQZmGzmk8rg3F"
+								},
+								{
+									"key": "scope",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A Credential is a container for authentican\\authorization secrets of API Consumer (User\\App) There are three credential types provided by the Express Gateway authorization policies:\r\n\r\n    basic-auth (password)\r\n    key-auth (key pair id:secret )\r\n    oauth2 (client secret or user password)   OAuth 2.0 policy\r\n\r\nAny API Consumer (Users/Apps) can have only one credential of type basic-auth and oauth2. However, an API Consumer may have multiple key-auth credentials.\r\n\r\nNote:\r\ncredentialId for basic-auth and oauth2 is consumerId and for key-auth it is keyId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2742acbe-d08f-48d1-89a1-2bcda8f24e6f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b5b91d8-824a-4fdf-80d8-b5f096dab03c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Scopes",
+			"item": [
+				{
+					"name": "Create Scopes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"scopes\": [\r\n    \"admin\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scopes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scopes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Scopes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scopes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scopes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Scope (Check exists)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scopes/:scope",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scopes",
+								":scope"
+							],
+							"variable": [
+								{
+									"key": "scope",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Scope (Check exists)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scopes/:scope",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scopes",
+								":scope"
+							],
+							"variable": [
+								{
+									"key": "scope",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Express Gateway utilizes scopes for permissions and basic authorization. A scope is a tag you can use to mark API Endpoints and matching Consumer credentials. Scopes can be used within any credential type. Credentials and Scopes Management describes how scopes are declared within credentials\r\n\r\nScopes must be declared within Express Gateway before they are used by credentials or specified on API endpoints.",
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [
 		{
-			"id": "915d2a09-266a-4127-8705-20809b2198f3",
+			"id": "bfc9b4ae-245c-42e1-bc29-ef2bba1034c3",
 			"key": "baseUrl",
 			"value": "http://localhost:9876",
 			"type": "string"
