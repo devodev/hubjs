@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "ef46d170-fcab-45c7-a653-23a1b31ae916",
+		"name": "Users",
+		"description": "A User is a the main consumer entity in Express Gateway. Typically, it would be used to represent a person in Express Gateway. User can have multiple Applications and Credentials.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"abarone\",\r\n  \"firstname\": \"Alex\",\r\n  \"lastname\": \"Barone\",\r\n  \"email\": \"alexandre.barone@hitachi-systems-security.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/:id-or-username",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":id-or-username"
+					],
+					"variable": [
+						{
+							"key": "id-or-username",
+							"value": "abarone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View User Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User info",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"abarone\",\r\n  \"firstname\": \"Alexandre\",\r\n  \"lastname\": \"Barone\",\r\n  \"email\": \"alexandre.barone@hitachi-systems-security.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/:id-or-username",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":id-or-username"
+					],
+					"variable": [
+						{
+							"key": "id-or-username",
+							"value": "abarone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/:id-or-username",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":id-or-username"
+					],
+					"variable": [
+						{
+							"key": "id-or-username",
+							"value": "abarone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate/Deactivate User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/:id-or-username/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":id-or-username",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "id-or-username",
+							"value": "abarone"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f900e5ae-aa0a-4e02-bb13-f261f80fef4e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ef8a1d7b-8761-40c3-af42-4ad3b68f1ee2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1fe126bf-1188-4401-ae7c-e37dc3122f12",
+			"key": "baseUrl",
+			"value": "http://localhost:9876",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
