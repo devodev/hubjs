@@ -2,23 +2,17 @@
   "$id": "http://express-gateway.io/models/users.json",
   "type": "object",
   "properties": {
-    "firstname": {
-      "type": "string"
-    },
-    "lastname": {
-      "type": "string"
-    },
-    "username": {
-      "type": "string"
-    },
-    "email": {
+    "client_name": {
       "type": "string",
-      "format": "email"
+      "readOnly": true
+    },
+    "client_id": {
+      "type": "number",
+      "readOnly": true
     }
   },
   "required": [
-    "username",
-    "firstname",
-    "lastname"
+    "client_name",
+    "client_id"
   ]
 }

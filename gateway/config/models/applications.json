@@ -2,11 +2,17 @@
   "$id": "http://express-gateway.io/models/applications.json",
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
+    "hostname": {
+      "type": "string",
+      "readOnly": true
+    },
+    "edge_id": {
+      "type": "number",
+      "readOnly": true
     }
   },
   "required": [
-    "name"
+    "hostname",
+    "edge_id"
   ]
 }
