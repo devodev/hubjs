@@ -14,10 +14,6 @@
     "email": {
       "type": "string",
       "format": "email"
-    },
-    "redirectUri": {
-      "type": "string",
-      "format": "uri"
     }
   },
   "required": [
