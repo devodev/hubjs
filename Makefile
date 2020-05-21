@@ -36,14 +36,15 @@ stop: ## Stop the container
 rm: ## Remove the container
 	docker rm $(APP_NAME)
 
-# AGGREGATE COMMANDS
-up: build run ## Run container on port configured in `config.env` (Alias to run)
-up-bg: build run-bg status ## Run container in the background on port configured in `config.env` (Alias to run)
-nuke: stop rm ## Stop and rm a running container
-
 # HELPER COMMANDS
 gencerts: ## Generate self-signed certificate and key
 	openssl req \
        -subj '$(CERT_SUBJ)' \
        -newkey rsa:2048 -nodes -keyout $(CERT_PATH)/$(CERT_NAME).key \
        -x509 -days 365 -out $(CERT_PATH)/$(CERT_NAME).pem
+
+# AGGREGATE COMMANDS
+init: gencerts build-nc ## Generate certs and build the container without using the cache
+up: build run ## Run container on port configured in `config.env` (Alias to run)
+up-bg: build run-bg status ## Run container in the background on port configured in `config.env` (Alias to run)
+nuke: stop rm ## Stop and rm a running container

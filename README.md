@@ -1,12 +1,13 @@
 # hubjs
 
+The hub runs on `Node.js`, a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
 ## Dependencies
 
-The hub uses `Node.js`, a Javascript runtime built on `Chrome's V8 Javascript engine`, and `express.js` as its web framework.
+The hub uses `express-gateway`, a microservices API gateway built on Express.js.
 
 - node.js 14.2
-- express 4.17.1
-- winston 3.2.1
+- express-gateway 1.16.10
 
 ## Content
 
@@ -16,7 +17,7 @@ The Dockerfile setups a `node` environment, installs dependencies, wraps the ser
 
 ### Makefile
 
-The Makefile provides helper commands while in development.
+The Makefile provides useful commands while in development.
 
 ### package.json
 
@@ -28,23 +29,24 @@ This is the web server implementation.
 
 ## Usage
 
-To get started, clone this repository, install dependencies and run the server:
+To get started, clone this repository and use the Makefile provided to start a container running hubjs:
 
 ```bash
 git clone https://git-url/path/to/hubjs.git
 cd hubjs
-npm install && npm start
+make up
 ```
 
 ### Docker
 
 > The following commands uses the Makefile provided by this repo.</br>
-> Also, `config.env` is sourced by the Makefile to get app specific parameters.
+> Also, `config.env` is sourced by the Makefile to get app specific parameters.</br>
+> This is not an exhaustive list of commands. Run `make help` to see all available commands.
 
-Build the image without using the build cache:
+Generate certs and build the image without using the build cache:
 
 ```bash
-make build-nc
+make init
 ```
 
 Build the image, create a container from the image, run it (interactively or in the background) and display its status:
