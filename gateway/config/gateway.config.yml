@@ -1,6 +1,6 @@
 https:
   port: 8443
-  hostname: localhost
+  hostname: 0.0.0.0
   tls:
     "default":
       key: ./config/tls/server.key
@@ -8,7 +8,7 @@ https:
 
 admin:
   port: 9876
-  host: localhost
+  host: 0.0.0.0
 
 serviceEndpoints:
   httpbin:
