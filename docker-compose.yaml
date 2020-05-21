@@ -12,6 +12,7 @@ services:
         NPM_CONFIG_LOGLEVEL: info
     environment:
       APP_PORT: 8443
+      APP_HOST: 0.0.0.0
       APP_ADMIN_PORT: 9876
       APP_REDIS_HOST: redis
       APP_REDIS_PORT: 6379
