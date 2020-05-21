@@ -41,7 +41,7 @@ pipelines:
           action:
             origin: '*'
             credentials: true
-            methods: ['POST']
+            methods: ['GET']
             optionsSuccessStatus: 204
       - key-auth:
           action:
