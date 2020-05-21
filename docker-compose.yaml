@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  gateway:
+    build:
+      context: .
+      args:
+        APP_PORT: 8443
+        APP_HOST: 0.0.0.0
+        APP_ADMIN_PORT: 9876
+        APP_ADMIN_HOST: 0.0.0.0
+        TINI_VERSION: v0.19.0
+        NPM_CONFIG_LOGLEVEL: info
+    environment:
+      APP_PORT: 8443
+      APP_ADMIN_PORT: 9876
+      APP_REDIS_HOST: redis
+      APP_REDIS_PORT: 6379
+      APP_REDIS_EMULATE: "false"
+    container_name: gateway
+    ports:
+      - "8443:8443/tcp"
+      - "9876:9876/tcp"
+    restart: always
+    depends_on:
+      - redis
+  redis:
+    image: redis:6.0
+    # command: redis-server /usr/local/etc/redis/redis.conf
+    expose:
+      - "6379"
+    restart: always
+    volumes:
+      - "db:/data"
+      # - "./redis.conf:/usr/local/etc/redis/redis.conf"
+networks:
+  default:
+    driver: overlay
+volumes:
+  db:

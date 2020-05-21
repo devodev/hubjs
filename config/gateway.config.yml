@@ -1,14 +1,14 @@
 https:
-  port: 8443
-  hostname: 0.0.0.0
+  port: ${APP_PORT:-8443}
+  hostname: ${APP_HOST:-0.0.0.0}
   tls:
     "default":
       key: ./config/tls/server.key
       cert: ./config/tls/server.pem
 
 admin:
-  port: 9876
-  host: 0.0.0.0
+  port: ${APP_ADMIN_PORT:-9876}
+  host: ${APP_ADMIN_HOST:-0.0.0.0}
 
 serviceEndpoints:
   httpbin:

@@ -37,7 +37,26 @@ cd hubjs
 make up
 ```
 
-### Docker
+Alternatively, one can use the docker-compose definition file provided. It will start a redis instance with persistence enabled to be used by the gateway.
+
+> Note:</br>
+> THP (Transparent Huge Pages) should be deactivated in the kernel of the linux VM running docker containers on your machine. More information [here](https://github.com/docker-library/redis/issues/55).</br>
+
+Deactivate THP (only need to be executed once):
+
+```text
+$ docker run -it --rm --privileged --pid=host justincormack/nsenter1
+/ # echo never > /sys/kernel/mm/transparent_hugepage/enabled
+/ # echo never > /sys/kernel/mm/transparent_hugepage/defrag
+```
+
+Start the stack
+
+```bash
+docker-compose up
+```
+
+### Helpful Commands
 
 > The following commands uses the Makefile provided by this repo.</br>
 > Also, `config.env` is sourced by the Makefile to get app specific parameters.</br>
