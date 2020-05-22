@@ -17,9 +17,21 @@ serviceEndpoints:
 apiEndpoints:
   httpbin:
     host: '*'
+    methods: ["GET"]
+    scopes: []
+    paths:
+      - /headers
+  httpbin-admin:
+    host: '*'
+    methods: ["GET"]
+    scopes: ["admin"]
     paths:
       - /ip
-      - /headers
+  httpbin-anon:
+    host: '*'
+    methods: ["GET"]
+    scopes: []
+    paths:
       - /user-agent
       - /cookies
       - /bearer
@@ -33,9 +45,10 @@ policies:
   - rate-limit
 
 pipelines:
-  httpbin:
+  httpbin-authenticated:
     apiEndpoints:
       - httpbin
+      - httpbin-admin
     policies:
       - cors:
           action:
@@ -51,6 +64,24 @@ pipelines:
       - log:
           action:
             message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            name: proxy
+            serviceEndpoint: httpbin
+            changeOrigin: true
+  httpbin-anonymous:
+    apiEndpoints:
+      - httpbin-anon
+    policies:
+      - cors:
+          action:
+            origin: '*'
+            credentials: true
+            methods: ['GET']
+            optionsSuccessStatus: 204
+      - log:
+          action:
+            message: "Anonymous: ${req.method} ${req.originalUrl}"
       - proxy:
           action:
             name: proxy

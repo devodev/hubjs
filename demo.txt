@@ -1,0 +1,27 @@
+[anonymous]
+	# access anonymous endpoint
+	curl -k https://localhost:8443/user-agent
+
+	# access authenticated endpoint
+	curl -k https://localhost:8443/headers
+    # access authenticated and admin scope set endpoint
+	curl -k https://localhost:8443/ip
+
+
+[client1:b.test] scopes: [] keyId: 7I7BS1oiqoZ9wJ7rFqqIYS
+	# access anonymous endpoint
+	curl -k -H "Authorization: Bearer 7I7BS1oiqoZ9wJ7rFqqIYS:1nGnpc5PYjH64wwHDaOLzb" https://localhost:8443/user-agent
+	# access authenticated endpoint
+	curl -k -H "Authorization: Bearer 7I7BS1oiqoZ9wJ7rFqqIYS:1nGnpc5PYjH64wwHDaOLzb" https://localhost:8443/headers
+
+	# access authenticated and admin scope set endpoint
+	curl -k -H "Authorization: Bearer 7I7BS1oiqoZ9wJ7rFqqIYS:1nGnpc5PYjH64wwHDaOLzb" https://localhost:8443/ip
+
+
+[client1:a.test] scopes: [admin] keyId: 0U5vYbm8dRx5ejqTDDr8UN
+	# access anonymous endpoint
+	curl -k -H "Authorization: Bearer 0U5vYbm8dRx5ejqTDDr8UN:4r1XExIOotKKQZuwOX2Ayj" https://localhost:8443/user-agent
+	# access authenticated endpoint
+	curl -k -H "Authorization: Bearer 0U5vYbm8dRx5ejqTDDr8UN:4r1XExIOotKKQZuwOX2Ayj" https://localhost:8443/headers
+	# access authenticated and admin scope set endpoint
+	curl -k -H "Authorization: Bearer 0U5vYbm8dRx5ejqTDDr8UN:4r1XExIOotKKQZuwOX2Ayj" https://localhost:8443/ip
