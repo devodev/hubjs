@@ -1,3 +1,5 @@
+client -> gateway -> service1, service2, service3
+
 [anonymous]
 	# access anonymous endpoint
 	curl -k https://localhost:8443/user-agent

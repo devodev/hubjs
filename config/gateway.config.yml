@@ -15,6 +15,15 @@ serviceEndpoints:
     url: 'https://httpbin.org'
 
 apiEndpoints:
+  httpbin-anon:
+    host: '*'
+    methods: ["GET"]
+    scopes: []
+    paths:
+      - /user-agent
+      - /cookies
+      - /bearer
+      - /response-headers
   httpbin:
     host: '*'
     methods: ["GET"]
@@ -27,22 +36,13 @@ apiEndpoints:
     scopes: ["admin"]
     paths:
       - /ip
-  httpbin-anon:
-    host: '*'
-    methods: ["GET"]
-    scopes: []
-    paths:
-      - /user-agent
-      - /cookies
-      - /bearer
-      - /response-headers
 
 policies:
   - cors
   - key-auth
   - log
   - proxy
-  - rate-limit
+  - terminate
 
 pipelines:
   httpbin-authenticated:
@@ -56,14 +56,27 @@ pipelines:
             credentials: true
             methods: ['GET']
             optionsSuccessStatus: 204
+      - log:
+          action:
+            message: "${req.method} ${req.originalUrl}"
       - key-auth:
           action:
             apiKeyHeaderScheme: Bearer
             disableQueryParam: true
-            passThrough: false
+            passThrough: true
       - log:
+          condition:
+            name: expression
+            expression: "typeof consumer === 'undefined'"
           action:
-            message: "${req.method} ${req.originalUrl}"
+            message: "unauthorized: autorization[${req.get('Authorization')}], user-agent[${req.get('User-Agent')}]"
+      - terminate:
+          condition:
+            name: expression
+            expression: "typeof consumer === 'undefined'"
+          action:
+            statusCode: 400
+            message: ''
       - proxy:
           action:
             name: proxy
