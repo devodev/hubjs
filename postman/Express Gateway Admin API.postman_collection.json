@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"userId\": \"aba88693-25cd-4fed-b9dd-7a219d8cc9ed\",\r\n  \"hostname\": \"a.test\",\r\n  \"edge_id\": 1\r\n}",
+							"raw": "{\r\n  \"userId\": \"f92b1f99-aae6-49ab-9cc3-6e27f9d8f31d\",\r\n  \"name\": \"a.test\",\r\n  \"edge_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -336,7 +336,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"credential\": {\r\n    \"scopes\": [\r\n    \t\"admin\"\r\n    ]\r\n  },\r\n  \"consumerId\": \"client1\",\r\n  \"type\": \"key-auth\"\r\n}",
+							"raw": "{\r\n  \"credential\": {\r\n    \"scopes\": [\r\n    \t\"admin\"\r\n    ]\r\n  },\r\n  \"consumerId\": \"f92b1f99-aae6-49ab-9cc3-6e27f9d8f31d\",\r\n  \"type\": \"key-auth\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -372,7 +372,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "71faa3c6-9637-43e8-ba84-9aac1a55d715"
+									"value": "f92b1f99-aae6-49ab-9cc3-6e27f9d8f31d"
 								}
 							]
 						}
@@ -1048,7 +1048,7 @@
 					"response": []
 				},
 				{
-					"name": "Get API Endpoints",
+					"name": "Get API Endpoint",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1120,7 +1120,7 @@
 			"name": "Pipelines",
 			"item": [
 				{
-					"name": "Get Pipelines",
+					"name": "Get Pipeline",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1189,7 +1189,7 @@
 					"response": []
 				},
 				{
-					"name": "List all api endpoints",
+					"name": "List all pipelines",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1257,7 +1257,7 @@
 	],
 	"variable": [
 		{
-			"id": "c14e0681-8072-4819-b3e9-a968e12385cb",
+			"id": "5f0fa332-f95f-4501-8867-9b75251fc30a",
 			"key": "baseUrl",
 			"value": "http://localhost:9876",
 			"type": "string"
